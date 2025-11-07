@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="font-[Nunito] overscroll-none">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	
+	<title>Chess</title>
+	
+	<script src="https://cdn.tailwindcss.com/"></script>
+	<script src="/scripts/tailwind.config.js"></script>
+	<link rel="stylesheet" href="/chessboard-js-master/css/chessboard.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+</head>
+
+<body class="w-screen h-dvh bg-gradient-to-tr from-blue-50 to-75% to-white overflow-auto overscroll-none">
+	<dialog id="dialog" class="p-4 max-w-xs py-3 rounded-lg outline-none backdrop:bg-black/50">
+	</dialog>
+	<main class="w-full h-full flex justify-center items-start overflow-auto">
+		<section class="max-w-md min-h-0 w-full p-4 flex flex-col gap-4">
+			<header class="w-full flex flex-row justify-between items-center">
+				<div>
+					<h1 class="text-2xl font-black flex gap-0.5">
+						<span>Chess</span>
+						<span class="text-yellow-500">.</span>
+					</h1>
+				</div>
+				<nav>
+					<ul class="flex flex-row gap-2 items-center justify-evenly">
+						<li class="text-sm font-medium hover:text-blue-500"><a href="https://nikhil-sha.github.io/" class="hover:underline">Me</a></li>
+						<li class="text-sm font-medium hover:text-blue-500"><a href="https://github.com/Nikhil-sha" class="hover:underline">GitHub</a></li>
+					</ul>
+				</nav>
+			</header>
+			<details class="w-full marker:content-none">
+				<summary class="w-full inline-flex flex-row justify-between items-center">
+					<span class="text-md font-bold">Actions</span>
+					<i class="fas fa-chevron-down fa-sm"></i>
+				</summary>
+				<div class="border-t border-gray-100 mt-2 pt-4 pb-2">
+					<div class="inline-flex gap-2 items-center mb-4">
+						<input id="id" type="text" placeholder="Your Player Id" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 text-gray-500 rounded-md cursor-not-allowed text-sm" disabled />
+						<button id="copyId" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm">Generate</button>
+					</div>
+					<div class="inline-flex gap-2 items-center mb-4">
+						<input id="" type="text" placeholder="Peer Player Id" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+						<button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm">Connect</button>
+					</div>
+					<div>
+						<label for="fen" class="text-sm">FEN:</label>
+						<input id="fen" name="fen" type="text" placeholder="Basic Input" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+					</div>
+				</div>
+			</details>
+			<article class="w-full">
+				<div class="flex justify-between items-center">
+					<p class="text-sm font-bold mb-2" id="status"></p>
+					<button onclick="undoMove()"><i class="fas fa-rotate-left fa-sm"></i></button>
+				</div>
+				<div id="chessboard" class="w-full rounded-lg border-4 border-gray-50 shadow-lg overflow-hidden transition duration-300"></div>
+			</article>
+			
+			<button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm" onclick="peer.destroy()">Destroy</button>
+			
+			<div class="space-y-4 hidden">
+				<!-- Primary Button -->
+				<button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm">Primary</button>
+				
+				<!-- Secondary Button -->
+				<button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 text-sm">Secondary</button>
+				
+				<!-- Success Button -->
+				<button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm">Success</button>
+				
+				<!-- Danger Button -->
+				<button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm">Danger</button>
+				
+				<!-- Outline Button -->
+				<button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100 text-sm">Outline</button>
+				
+				<!-- Disabled Button -->
+				<button class="px-4 py-2 bg-gray-300 text-gray-500 rounded-md cursor-not-allowed text-sm" disabled>Disabled</button>
+			</div>
+			<div class="space-y-4 hidden">
+				<!-- Basic Input -->
+				<input type="text" placeholder="Basic Input" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+				
+				<!-- Rounded Input -->
+				<input type="text" placeholder="Rounded Input" class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 text-sm" />
+				
+				<!-- Input with Shadow -->
+				<input type="text" placeholder="Input with Shadow" class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm" />
+				
+				<!-- Disabled Input -->
+				<input type="text" value="this" placeholder="Disabled Input" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 text-gray-500 rounded-md cursor-not-allowed text-sm" disabled />
+				
+				<!-- Input with Icon -->
+				<div class="relative">
+					<input type="text" placeholder="Input with Icon" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+					<span class="absolute left-3 top-2.5 text-gray-400">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 19.071a8.974 8.974 0 010-12.727M16.95 19.071a8.974 8.974 0 010-12.727m-8.484 8.484l5.657-5.657m0 0l5.657 5.657m-5.657-5.657v12" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			
+		</section>
+	</main>
+	
+	<script defer src="https://unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
+	<script defer src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+	<script defer src="/chessboard-js-master/js/chessboard.min.js"></script>
+	<!-- <script defer src="https://unpkg.com/chess.js@0.12.0/chess.js"></script> -->
+	<script defer src="/chess-js@0.12.0.js" type="text/javascript" charset="utf-8"></script>
+	<!-- <script defer src="main.js"></script> -->
+	<script defer src="scripts/game.js"></script>
+</body>
+
+</html>
