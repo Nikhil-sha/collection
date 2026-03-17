@@ -8,7 +8,8 @@
 	
 	<title>Chess</title>
 	
-	<script src="https://cdn.tailwindcss.com/"></script>
+	<!-- <script src="https://cdn.tailwindcss.com/"></script> -->
+	<script type="text/javascript" charset="utf-8" src="Spic-building-materials/assets/js/libs/tailwind/Tailwind@3.4.16.js"></script>
 	<script src="./scripts/tailwind.config.js"></script>
 	<link rel="stylesheet" href="./chessboard-js-master/css/chessboard.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
@@ -34,6 +35,7 @@
 					</ul>
 				</nav>
 			</header>
+			
 			<details class="w-full marker:content-none">
 				<summary class="w-full inline-flex flex-row justify-between items-center">
 					<span class="text-md font-bold">Actions</span>
@@ -54,6 +56,51 @@
 					</div>
 				</div>
 			</details>
+			
+			<!-- Game Status Interface -->
+			<section id="statusBar" class="w-full flex flex-col items-center justify-center mb-4 select-none">
+				<!-- Top status card -->
+				<div class="w-full flex items-center justify-between border border-gray-200 bg-white rounded-md px-3 py-2">
+					
+					<!-- Player A -->
+					<div id="playerA" class="flex items-center gap-2">
+						<div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs font-bold">
+							A
+						</div>
+						<span class="text-sm font-semibold text-gray-700">You</span>
+					</div>
+					
+					<!-- Game State -->
+					<div id="gameState" class="text-sm font-semibold text-gray-600">
+						Waiting...
+					</div>
+					
+					<!-- Player B -->
+					<div id="playerB" class="flex items-center gap-2">
+						<span class="text-sm font-semibold text-gray-500">Opponent</span>
+						<div class="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center text-white text-xs font-bold">
+							B
+						</div>
+					</div>
+				</div>
+				
+				<!-- Turn indicator -->
+				<div class="flex items-center justify-center w-full mt-2">
+					<div class="flex items-center gap-3">
+						<div id="aTurnDot" class="w-2.5 h-2.5 rounded-full bg-blue-500 transition-all duration-300"></div>
+						<span id="turnText" class="text-xs text-gray-500 font-medium">Waiting for start...</span>
+						<div id="bTurnDot" class="w-2.5 h-2.5 rounded-full bg-gray-300 transition-all duration-300"></div>
+					</div>
+				</div>
+				
+				<!-- Action Row -->
+				<div class="flex justify-end w-full mt-2">
+					<button onclick="undoMove()" class="flex items-center gap-1 px-3 py-1.5 text-xs bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 active:scale-95 transition">
+						<i class="fas fa-rotate-left text-[11px]"></i> Undo
+					</button>
+				</div>
+			</section>
+			
 			<article class="w-full">
 				<div class="flex justify-between items-center">
 					<p class="text-sm font-bold mb-2" id="status"></p>
@@ -113,9 +160,7 @@
 	<script defer src="https://unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
 	<script defer src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 	<script defer src="./chessboard-js-master/js/chessboard.min.js"></script>
-	<!-- <script defer src="https://unpkg.com/chess.js@0.12.0/chess.js"></script> -->
 	<script defer src="./scripts/chess-js@0.12.0.js" type="text/javascript" charset="utf-8"></script>
-	<!-- <script defer src="main.js"></script> -->
 	<script defer src="./scripts/game.js"></script>
 </body>
 
