@@ -56,7 +56,7 @@ function submitAnswer(e) {
 		return;
 	}
 	
-	if (e.target.answer.value === questionData[currQuestIndex].answer) {
+	if (parseInt(e.target.answer.value) === questionData[currQuestIndex].answer) {
 		score += 4;
 		attempted++;
 		window.prevQuestResEl.className = `size-4 rounded-full bg-green-400`;
