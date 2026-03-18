@@ -66,6 +66,7 @@ function submitAnswer(e) {
 		wrong++;
 		attempted++;
 		window.prevQuestResEl.className = `size-4 rounded-full bg-red-400`;
+		alert(questionData[currQuestIndex].rationale)
 	}
 	
 	currQuestIndex += 1;

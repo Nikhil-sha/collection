@@ -19,116 +19,84 @@
 </head>
 
 <body class="bg-white text-gray-900 min-h-screen flex flex-col justify-center items-center p-4 font-medium">
-  
   <section id="homeCardEl" class="w-full max-w-xl bg-white border border-gray-200 rounded-lg shadow-xl p-6">
-    
     <ul id="testListEl" class="space-y-4">
+      <li>
+        <a href="?test=LU_UGET_BCA" class="bg-white flex items-center gap-3 border border-gray-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-gray-100 focus:bg-gray-900 focus:text-white transition-colors duration-200">
+          <i class="fas fa-book"></i>
+          <span class="text-base font-normal">LU UGET BCA Mock test</span>
+        </a>
+      </li>
       
       <li>
-        
-        <a href="?test=IPU_CET_BCA" class="bg-white flex items-center gap-3 border border-gray-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-gray-100 focus:bg-gray-900 focus:text-white transition-colors duration-200">
-        
+        <a href="?test=LU_UGET_BCA-2" class="bg-white flex items-center gap-3 border border-gray-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-gray-100 focus:bg-gray-900 focus:text-white transition-colors duration-200">
           <i class="fas fa-book"></i>
-          
-          <span class="text-base font-normal">IPU CET BCA Mock test</span>
-          
+          <span class="text-base font-normal">LU UGET BCA Mock test 2</span>
         </a>
-        
       </li>
-
+      
+      <li>
+        <a href="?test=LU_UGET_BCA-3" class="bg-white flex items-center gap-3 border border-gray-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-gray-100 focus:bg-gray-900 focus:text-white transition-colors duration-200">
+          <i class="fas fa-book"></i>
+          <span class="text-base font-normal">LU UGET BCA Mock test 3</span>
+        </a>
+      </li>
     </ul>
-    
   </section>
   
   <form id="mainFormEl" class="hidden w-full max-w-xl bg-white border border-gray-200 rounded-lg shadow-xl">
-    
     <div class="w-full flex items-center justify-between bg-gray-900 p-4 rounded-t-lg">
-      
       <p id="progressEl" class="text-white text-sm text-gray-500 font-bold">Class 12 Unit Tests</p>
-      
       <div class="inline-flex gap-2">
-        
         <span id="prevQuestResEl" class="hidden"></span>
-        
         <span class="size-4 rounded-full bg-gray-200"></span>
-        
       </div>
-      
     </div>
     
     <div class="p-6">
-      
       <div class="mb-8">
-        
         <h2 id="questionEl" class="text-xl font-semibold leading-tight"></h2>
-        
       </div>
       
       <template id="optionTemp">
-      
         <label class="block">
-        
           <input type="radio" name="answer" value="a" class="hidden peer">
-          
           <div class="bg-white flex items-center gap-3 border border-gray-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-gray-100 peer-checked:bg-gray-900 peer-checked:text-white transition-colors duration-200">
-            
             <i class="fas fa-circle-dot"></i>
-            
             <span class="text-base font-normal peer-checked:font-bold"></span>
-            
           </div>
-          
         </label>
-        
       </template>
       
       <div id="optionsEl" class="space-y-4 mb-6">
       </div>
       
       <div class="flex justify-between items-center space-x-4">
-        
         <button type="reset" class="flex-1 py-3 px-6 rounded-lg text-sm font-semibold border border-gray-300 hover:bg-gray-100 transition-colors duration-200">
-        
           <i class="fas fa-forward mr-2"></i> Skip
-          
         </button>
         
         <button type="submit" class="flex-1 py-3 px-6 rounded-lg text-sm font-semibold bg-gray-900 text-white hover:bg-gray-800 transition-colors duration-200">
-        
           <i class="fas fa-paper-plane mr-2"></i> Submit
-          
         </button>
-        
       </div>
-      
     </div>
-    
   </form>
   
   <section id="resultEl" class="hidden w-full max-w-xl bg-white border border-gray-200 rounded-lg shadow-xl p-6 flex flex-col items-center gap-6">
-    
     <span class="fas fa-award text-6xl"></span>
-    
     <h2 class="text-lg font-bold text-center">Congratulations!</h2>
-    
     <p class="text-sm text-gray-600 text-center">You attempted 10 of 30 question. You answered 2 of them wrong. Your final score is 38.</p>
-    
     <button onclick="history.back()" class="w-full py-3 px-6 rounded-lg text-sm font-semibold bg-gray-900 text-white hover:bg-gray-800 transition-colors duration-200">
-    
       <i class="fas fa-arrow-left mr-2"></i> Go Back
-      
     </button>
-    
   </section>
   
   <div class="w-full max-w-xl text-center mt-4 text-sm text-gray-500 font-normal">
-    
     <p>Made by Nikhil Sharma</p>
-    
   </div>
   
   <script defer src="./script.js" type="text/javascript" charset="utf-8"></script>
-  
 </body>
 
 </html>
