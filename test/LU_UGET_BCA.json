@@ -24,12 +24,6 @@
 		"rationale": "'Accommodate' is the correct spelling, derived from Latin 'accommodatus'. It is commonly misspelled by omitting one 'c' or one 'm' [citation:1][citation:4]."
 	},
 	{
-		"question": "If 'DELHI' is coded as 'CCIDD', how is 'MUMBAI' coded in the same pattern?",
-		"options": ["LTLASH", "LTLZGH", "LTLAGH", "NTNCBJ"],
-		"answer": 2,
-		"rationale": "The coding pattern is: each letter is shifted back by 1, 2, 1, 2 alternately. D-1=C, E-2=C, L-1=K (but coded as I? Let's re-check: DELHI: D(-1)=C, E(-2)=C, L(-1)=K, H(-2)=F, I(-1)=H -> should be CCKFH but given is CCIDD. This indicates a different pattern. Let's find a consistent one: D(4) to C(3): -1; E(5) to C(3): -2; L(12) to I(9): -3; H(8) to D(4): -4; I(9) to D(4): -5. So the pattern is subtracting increasing integers: 1,2,3,4,5. Applying to MUMBAI: M(13)-1=L, U(21)-2=S, M(13)-3=J, B(2)-4=X (but 2-4=-2+26=24=Y?), I(9)-5=D? This seems off. Given the options 'LTLAGH' fits a simpler alternating -1/-2 pattern. M-1=L, U-2=S, M-1=L, B-2=Z, A-1=Z, I-2=G -> LSLZZG. None match. Let's assume the given 'CCIDD' is a typo in the question and use a consistent -1 pattern. Most logical is -1 for all: MUMBAI -> LTL@ZH. Option B 'LTLZGH' is closest. Without an official PYQ, we deduce that 'LTLAGH' is the intended answer based on common alternating patterns in LU exams [citation:1][citation:4]."
-	},
-	{
 		"question": "What is the primary function of the ALU (Arithmetic Logic Unit) in a computer's CPU?",
 		"options": ["To store data permanently", "To perform arithmetic and logical operations", "To manage input/output devices", "To fetch instructions from memory"],
 		"answer": 1,
