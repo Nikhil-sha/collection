@@ -1,6 +1,7 @@
 let questionData = null,
 	currQuestIndex = 0,
 	score = 0,
+	total,
 	attempted = 0,
 	wrong = 0;
 
@@ -14,6 +15,7 @@ async function loadData(fileName) {
 		
 		const jsonData = await response.json();
 		questionData = jsonData;
+		total = (questionData.length * 4);
 	} catch (e) {
 		console.error(e);
 	}
@@ -43,7 +45,7 @@ function startQuestioning() {
 		window.mainFormEl.classList.add('hidden');
 		window.resultEl.classList.remove('hidden');
 		window.resultEl.querySelector('h2').textContent = 'Congrats!';
-		window.resultEl.querySelector('p').innerHTML = `You attempted <strong>${attempted}</strong> of ${questionData.length} question. You answered ${wrong} of them wrong. Your final score is <strong>${score}</strong>.`;
+		window.resultEl.querySelector('p').innerHTML = `You attempted <strong>${attempted}</strong> of ${questionData.length} question. You answered ${wrong} of them wrong. Your final score is <strong>${score}/${total}, ${score / total * 100}%.</strong>.`;
 		return;
 	}
 	setQuestion(questionData[currQuestIndex]);
